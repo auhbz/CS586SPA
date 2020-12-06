@@ -40,25 +40,7 @@ namespace Comp586ProjectServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BoardGame");
-                });
-
-            modelBuilder.Entity("Comp586ProjectServer.Models.BoardGamePlayer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("BoardGameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlayerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BoardGamePlayer");
-                });
+                });            
 
             modelBuilder.Entity("Comp586ProjectServer.Models.Designer", b =>
                 {
@@ -76,31 +58,7 @@ namespace Comp586ProjectServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Designer");
-                });
-
-            modelBuilder.Entity("Comp586ProjectServer.Models.Player", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("EmailAddress")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Player");
-                });
+                });           
 
             modelBuilder.Entity("Comp586ProjectServer.Models.Publisher", b =>
                 {

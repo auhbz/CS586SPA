@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,12 @@ export class AppComponent {
   public forecasts: WeatherForecast[];
 
   // @ts-ignore
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, public auth: AuthService) {
     http.get<WeatherForecast[]>(this.baseUrl + 'weatherforecast').subscribe(result => {
       this.forecasts = result;
     }, error => console.error(error));
   }
+
 }
 
 interface WeatherForecast {

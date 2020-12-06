@@ -17,10 +17,8 @@ namespace Comp586ProjectServer.Models
         {
         }
 
-        public virtual DbSet<BoardGame> BoardGames { get; set; }
-        public virtual DbSet<BoardGamePlayer> BoardGamePlayers { get; set; }
-        public virtual DbSet<Designer> Designers { get; set; }
-        public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<BoardGame> BoardGames { get; set; }        
+        public virtual DbSet<Designer> Designers { get; set; }        
         public virtual DbSet<Publisher> Publishers { get; set; }       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,13 +31,6 @@ namespace Comp586ProjectServer.Models
             modelBuilder.Entity<Designer>(entity =>
             {
                 entity.Property(e => e.Name).IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Player>(entity =>
-            {
-                entity.Property(e => e.EmailAddress).IsUnicode(false);
-
-                entity.Property(e => e.Username).IsUnicode(false);
             });
 
             modelBuilder.Entity<Publisher>(entity =>
