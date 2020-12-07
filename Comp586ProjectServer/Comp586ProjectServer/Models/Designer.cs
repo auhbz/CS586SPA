@@ -24,7 +24,7 @@ namespace Comp586ProjectServer.Models
         public string Name { get; set; }
 
         [InverseProperty(nameof(BoardGame.Designer))]
-        public virtual ICollection<BoardGame> BoardGames { get; set; }
+        public virtual ICollection<BoardGame> BoardGames { get; set; } 
 
     }
 }

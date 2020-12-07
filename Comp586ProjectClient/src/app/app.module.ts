@@ -10,12 +10,15 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { DesignersComponent } from './components/designers/designers.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
     BoardGamesComponent,
     LoginButtonComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    DesignersComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
     AuthModule.forRoot({
       ...env.auth,
     }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
