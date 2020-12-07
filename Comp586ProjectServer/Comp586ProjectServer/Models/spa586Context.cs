@@ -18,22 +18,22 @@ namespace Comp586ProjectServer.Models
         }
 
         public virtual DbSet<BoardGame> BoardGames { get; set; }        
-        public virtual DbSet<Designer> Designers { get; set; }        
-        public virtual DbSet<Publisher> Publishers { get; set; }       
+        public virtual DbSet<Designer> Designers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BoardGame>(entity =>
             {
                 entity.Property(e => e.Name).IsUnicode(false);
+
+                entity.HasOne(d => d.Designer)
+                .WithMany(p => p.BoardGames)
+                .HasForeignKey(d => d.DesignerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_BoardGames_Designers");
             });
 
             modelBuilder.Entity<Designer>(entity =>
-            {
-                entity.Property(e => e.Name).IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Publisher>(entity =>
             {
                 entity.Property(e => e.Name).IsUnicode(false);
             });

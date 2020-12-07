@@ -26,7 +26,8 @@ namespace Comp586ProjectServer.Migrations
                         .UseIdentityColumn();
 
                     b.Property<int>("DesignerId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("DesignerId");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -34,13 +35,12 @@ namespace Comp586ProjectServer.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
+                    b.HasIndex("DesignerId");
+
                     b.ToTable("BoardGame");
-                });            
+                });
 
             modelBuilder.Entity("Comp586ProjectServer.Models.Designer", b =>
                 {
@@ -58,24 +58,22 @@ namespace Comp586ProjectServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Designer");
-                });           
+                });
 
-            modelBuilder.Entity("Comp586ProjectServer.Models.Publisher", b =>
+            modelBuilder.Entity("Comp586ProjectServer.Models.BoardGame", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.HasOne("Comp586ProjectServer.Models.Designer", "Designer")
+                        .WithMany("BoardGames")
+                        .HasForeignKey("DesignerId")
+                        .HasConstraintName("FK_BoardGames_Designers")
+                        .IsRequired();
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                    b.Navigation("Designer");
+                });
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Publisher");
+            modelBuilder.Entity("Comp586ProjectServer.Models.Designer", b =>
+                {
+                    b.Navigation("BoardGames");
                 });
 #pragma warning restore 612, 618
         }
