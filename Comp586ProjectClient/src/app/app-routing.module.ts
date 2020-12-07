@@ -2,10 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoardGamesComponent } from './components/board-games/board-games.component';
 import { DesignersComponent } from './components/designers/designers.component';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
-  { path: "board-games", component: BoardGamesComponent },
-  { path: "designers", component: DesignersComponent }
+  {
+    path: "board-games", component: BoardGamesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "designers", component: DesignersComponent,
+    canActivate: [AuthGuard],
+  }
 ];
 
 @NgModule({
