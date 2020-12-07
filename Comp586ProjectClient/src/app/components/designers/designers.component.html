@@ -1,7 +1,22 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="designers">
     <tbody>
+        <h2>
+            Designers:
+        </h2>
         <tr *ngFor="let d of designers">
-            <td>{{ d.name }}</td>
+            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                <ngb-panel>
+                    <ng-template ngbPanelTitle>
+                        <span>{{d.name}}</span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+        <tr *ngFor="let bg of d.boardGames">
+            <span>{{bg}}</span>
+        </tr>
+        <!-- {{d.boardGames}} -->
+        </ng-template>
+        </ngb-panel>
+        </ngb-accordion>
         </tr>
     </tbody>
 </table>
