@@ -1,1 +1,29 @@
 <h2>Add Games Here!</h2>
+
+<div>
+    <form [formGroup]="addGameForm" (ngSubmit)="onSubmit(addGameForm.value)">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" required="required">
+        </div>
+        <div>
+            <label for="designerId">Designer</label>
+            <select name="designers" id="designerId" formControlName="designerId">
+                <option *ngFor="let d of designersForAdd">{{d.name}}</option>
+            </select>
+        </div>
+    </form>
+</div>
+
+<!-- <form action="onSubmit">
+    <label for="fname">Board Game Name:</label><br>
+    <input type="text" id="game" name="game"><br>
+    <select name="game" onchange='CheckSelection(this.value);'>
+        <option>Pick a Designer</option>
+        <option *ngFor="let d of designersForAdd">{{d.name}}</option>
+        <option value="test">Test</option>
+        <option value="other">other</option>
+    </select>
+    <input type="text" name="game" id="game" style=' display:none;' />
+    <input type="submit" value="Submit">
+</form> -->

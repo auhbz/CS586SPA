@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BoardGamesComponent } from './components/board-games/board-games.component';
 import { DesignersComponent } from './components/designers/designers.component';
 // import { AuthGuard } from '@auth0/auth0-angular';
-// import { AddGameComponent } from './components/add-game/add-game.component';
+import { AddGameComponent } from './components/add-game/add-game.component';
 
 const routes: Routes = [
   {
@@ -14,10 +14,10 @@ const routes: Routes = [
     path: "designers", component: DesignersComponent,
     // canActivate: [AuthGuard],
   },
-  // {
-  //   path: "", component: AddGameComponent,
-  //   // canActivate: [AuthGuard],
-  // }
+  {
+    path: "", component: AddGameComponent,
+    // canActivate: [AuthGuard],
+  }
 ];
 
 @NgModule({

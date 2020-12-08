@@ -12,7 +12,8 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { DesignersComponent } from './components/designers/designers.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { AddGameComponent } from './components/add-game/add-game.component';
+import { AddGameComponent } from './components/add-game/add-game.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginButtonComponent,
     LogoutButtonComponent,
     DesignersComponent,
-    // AddGameComponent
+    AddGameComponent
   ],
   imports: [
     BrowserModule,

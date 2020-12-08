@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Comp586ProjectServer.ViewModels;
 
 #nullable disable
 
