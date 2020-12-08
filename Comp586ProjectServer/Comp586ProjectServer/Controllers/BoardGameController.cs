@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Comp586ProjectServer.Models;
+using Comp586ProjectServer.ViewModels;
 
 namespace Comp586ProjectServer.Controllers
 {
@@ -22,9 +23,17 @@ namespace Comp586ProjectServer.Controllers
 
         // GET: api/BoardGame
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BoardGame>>> GetBoardGames()
+        public async Task<ActionResult<IEnumerable<BoardGamesViewModel>>> GetBoardGames()
         {
-            return await _context.BoardGames.ToListAsync();
+            var boardGames = from BoardGame in _context.BoardGames
+                             select new BoardGamesViewModel
+                             {
+                                 Name = BoardGame.Name,
+                                 Id = BoardGame.Id
+
+                             };
+
+            return await boardGames.ToListAsync();
         }
 
         // GET: api/BoardGame/5

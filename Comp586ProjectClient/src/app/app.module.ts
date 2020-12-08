@@ -12,13 +12,15 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { DesignersComponent } from './components/designers/designers.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { AddGameComponent } from './components/add-game/add-game.component';
 @NgModule({
   declarations: [
     AppComponent,
     BoardGamesComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
-    DesignersComponent
+    DesignersComponent,
+    // AddGameComponent
   ],
   imports: [
     BrowserModule,
