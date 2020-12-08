@@ -13,6 +13,7 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
 import { DesignersComponent } from './components/designers/designers.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddGameComponent } from './components/add-game/add-game.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { AddGameComponent } from './components/add-game/add-game.component';
       ...env.auth,
     }),
     NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

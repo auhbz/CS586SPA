@@ -9,9 +9,10 @@
         <div>
             <label for="designerId">Designer</label>
             <select name="designers" id="designerId" formControlName="designerId">
-                <option *ngFor="let d of designersForAdd">{{d.name}}</option>
+                <option *ngFor="let d of designersForAdd" value="{{d.id}}">{{d.name}}</option>
             </select>
         </div>
+        <button class="button" type="submit">Add Game</button>
     </form>
 </div>
 

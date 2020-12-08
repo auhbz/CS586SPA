@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+imports: [
+  ReactiveFormsModule
+]
 
 @Component({
   selector: 'app-add-game',
@@ -20,7 +23,7 @@ export class AddGameComponent implements OnInit {
   router: Router;
   gameToAdd: GameToAdd;
 
-  constructor(http: HttpClient, public auth: AuthService, private formBuilder: FormBuilder, router: Router) {
+  constructor(http: HttpClient, public auth: AuthService, public formBuilder: FormBuilder, router: Router) {
     this.http = http;
     this.router = router;
     http.get<DesignersForAdd[]>(this.baseUrl + 'api/designersvm').subscribe(result => {
@@ -39,14 +42,13 @@ export class AddGameComponent implements OnInit {
       alert('Must fill game name!');
     } else {
       Data.designerId = +Data.designerId;
-      this.http.post<GameToAdd>(this.baseUrl + 'api/boardgames', Data).subscribe(
+      this.http.post<GameToAdd>(this.baseUrl + 'api/boardgame', Data).subscribe(
         result => {
           this.gameToAdd = result;
-          this.router.navigateByUrl('/boardgames');
+          this.router.navigateByUrl('/board-games');
         }, error => console.error(error)
       );
     }
-
   }
 }
 
@@ -59,42 +61,3 @@ interface DesignersForAdd {
   id: number;
   name: string;
 }
-
-// <html>
-// <head>  
-// <script type="text/javascript">
-// function CheckColors(val){
-//  var element=document.getElementById('color');
-//  if(val=='pick a color'||val=='others')
-//    element.style.display='block';
-//  else  
-//    element.style.display='none';
-// }
-
-// </script> 
-// </head>
-// <body>
-//   <select name="color" onchange='CheckColors(this.value);'> 
-//     <option>pick a color</option>  
-//     <option value="red">RED</option>
-//     <option value="blue">BLUE</option>
-//     <option value="others">others</option>
-//   </select>
-// <input type="text" name="color" id="color" style='display:none;'/>
-// </body>
-// </html>
-// interface GamesToAdd {
-//   id: number;
-//   name: string;
-//   designer: string;
-// }
-
-
-// onSubmit(Data: GamesToAdd): void {
-//   if(Data.name == null || DataCue.name.trim() === ''){
-//   alert('Must enter game name!');
-// } else {
-//   this.addGameForm.reset();
-//   this.httpG.post<GamesToAdd>(this.baseUrl + 'api/boardgames', Data).subscribe();
-// }
-// }
