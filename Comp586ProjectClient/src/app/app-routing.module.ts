@@ -7,11 +7,11 @@ import { AuthGuard } from '@auth0/auth0-angular';
 const routes: Routes = [
   {
     path: "board-games", component: BoardGamesComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: "designers", component: DesignersComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   }
 ];
 
