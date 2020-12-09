@@ -9,27 +9,22 @@ import { Router } from '@angular/router';
 // ]
 
 @Component({
-  selector: 'app-add-game',
-  templateUrl: './add-game.component.html',
+  selector: 'app-add-designer',
+  templateUrl: './add-designer.component.html',
   styles: [
-  ],
+  ]
 })
-
-export class AddGameComponent implements OnInit {
+export class AddDesignerComponent implements OnInit {
   baseUrl = 'https://localhost:5001/';
-  public designersForAdd: DesignersForAdd[];
-  addGameForm;
+  addDesignerForm;
   http: HttpClient;
   router: Router;
-  gameToAdd: GameToAdd;
+  designerToAdd: DesignerToAdd;
 
   constructor(http: HttpClient, public auth: AuthService, public formBuilder: FormBuilder, router: Router) {
     this.http = http;
     this.router = router;
-    http.get<DesignersForAdd[]>(this.baseUrl + 'api/designersvm').subscribe(result => {
-      this.designersForAdd = result;
-    }, error => console.error(error));
-    this.addGameForm =
+    this.addDesignerForm =
       this.formBuilder.group({
         name: null,
         designerId: null,
@@ -37,27 +32,22 @@ export class AddGameComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  onSubmit(Data: GameToAdd): void {
+  onSubmit(Data: DesignerToAdd): void {
     if (Data.name == null || Data.name.trim() === '') {
       alert('Must fill game name!');
     } else {
       Data.designerId = +Data.designerId;
-      this.http.post<GameToAdd>(this.baseUrl + 'api/boardgame', Data).subscribe(
+      this.http.post<DesignerToAdd>(this.baseUrl + 'api/designer', Data).subscribe(
         result => {
-          this.gameToAdd = result;
-          this.router.navigateByUrl('/board-games');
+          this.designerToAdd = result;
+          this.router.navigateByUrl('/designers');
         }, error => console.error(error)
       );
     }
   }
 }
 
-interface GameToAdd {
+interface DesignerToAdd {
   name: string;
   designerId: number;
-}
-
-interface DesignersForAdd {
-  id: number;
-  name: string;
 }

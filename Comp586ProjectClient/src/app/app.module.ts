@@ -14,6 +14,8 @@ import { DesignersComponent } from './components/designers/designers.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddGameComponent } from './components/add-game/add-game.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddDesignerComponent } from './components/add-designer/add-designer.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginButtonComponent,
     LogoutButtonComponent,
     DesignersComponent,
-    AddGameComponent
+    AddGameComponent,
+    AddDesignerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

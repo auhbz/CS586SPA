@@ -1,0 +1,10 @@
+<h4>Add Designers Here!</h4>
+<div>
+    <form [formGroup]="addDesignerForm" (ngSubmit)="onSubmit(addDesignerForm.value)">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" required="required">
+        </div>
+        <button class="button" type="submit">Add Designer</button>
+    </form>
+</div>

@@ -4,6 +4,8 @@ import { BoardGamesComponent } from './components/board-games/board-games.compon
 import { DesignersComponent } from './components/designers/designers.component';
 // import { AuthGuard } from '@auth0/auth0-angular';
 import { AddGameComponent } from './components/add-game/add-game.component';
+import { AddDesignerComponent } from './components/add-designer/add-designer.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -15,9 +17,17 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
   },
   {
-    path: "", component: AddGameComponent,
+    path: "", component: HomeComponent,
     // canActivate: [AuthGuard],
-  }
+  },
+  // {
+  //   path: "", component: AddGameComponent,
+  //   // canActivate: [AuthGuard],
+  // },
+  // {
+  //   path: "", component: AddDesignerComponent,
+  //   // canActivate: [AuthGuard],
+  // }
 ];
 
 @NgModule({
