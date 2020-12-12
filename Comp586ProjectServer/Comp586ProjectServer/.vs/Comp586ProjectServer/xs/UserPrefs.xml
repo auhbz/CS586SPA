@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{E6FA7505-70D9-4C70-83FC-FED3640AC490}|Default">
   <MonoDevelop.Ide.ItemProperties.Comp586ProjectServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/DesignersVMController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
       <File FileName="Models/BoardGame.cs" Line="12" Column="1" />
       <File FileName="Controllers/BoardGameController.cs" Line="15" Column="48" />
@@ -8,19 +8,19 @@
       <File FileName="ViewModels/DesignersWithBoardGames.cs" Line="19" Column="1" />
       <File FileName="Controllers/DesignersWithBoardGamesController.cs" Line="13" Column="18" />
       <File FileName="Controllers/DesignerController.cs" Line="1" Column="1" />
-      <File FileName="Controllers/DesignersVMController.cs" Line="9" Column="39" />
+      <File FileName="Controllers/DesignersVMController.cs" Line="20" Column="10" />
       <File FileName="ViewModels/DesignersViewModel.cs" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="25" Column="77" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Comp586ProjectServer" expanded="True">
             <Node name="Comp586ProjectServer" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="DesignersVMController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="ViewModels" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
